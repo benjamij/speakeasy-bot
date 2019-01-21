@@ -1,0 +1,37 @@
+{
+  "name": "speakeasy-bot",
+  "version": "0.1.0",
+  "description": "The SpeakEasy bot for communicating with the SpeakEasy Platform and Dialogflow.",
+  "main": "main.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack --mode production",
+    "serve": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjamij/speakeasy-bot.git"
+  },
+  "author": "Studio42",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benjamij/speakeasy-bot/issues"
+  },
+  "homepage": "https://github.com/benjamij/speakeasy-bot#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.3",
+    "vue": "^2.5.22",
+    "vue-loader": "^15.5.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.22",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
