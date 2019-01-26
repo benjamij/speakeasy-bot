@@ -57,9 +57,9 @@ export default class DialogFlowApi {
             exp: KJUR.jws.IntDate.get('now + 1hour'),
             aud: 'https://dialogflow.googleapis.com/google.cloud.dialogflow.v2.Sessions'
         }
-        
-        const stringHeader = JSON.stringify(header)
-        const stringPayload = JSON.stringify(payload)
-        this.token = KJUR.jws.JWS.sign('RS256', stringHeader, stringPayload, creds.private_key)
+
+        this.token = KJUR.jws.JWS.sign(
+            'RS256', JSON.stringify(header), JSON.stringify(payload), creds.private_key
+        )
     }
 }
