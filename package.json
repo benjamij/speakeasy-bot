@@ -18,7 +18,10 @@
     "url": "https://github.com/benjamij/speakeasy-bot/issues"
   },
   "homepage": "https://github.com/benjamij/speakeasy-bot#readme",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0",
+    "jsrsasign": "^8.0.12"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
