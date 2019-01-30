@@ -9,6 +9,7 @@ export default class SpeakEasyApi {
         axios.defaults.baseURL = baseUrl;
         axios.defaults.headers.post['Content-Type'] = 'application/json';
         this.agentName = agentName;
+        this.session = null;
     }
     
     detectIntent (text, languageCode = 'en-US') {
@@ -16,8 +17,10 @@ export default class SpeakEasyApi {
             .post(`/api/v1/intent/detect`, {
                 text: text,
                 language: languageCode,
-                agent: this.agentName
+                agent: this.agentName,
+                session: this.session
             })
+            .then(resp => this.session = resp.data.session)
             .catch(error => console.log(error));
     }
 }
