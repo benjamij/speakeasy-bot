@@ -20,7 +20,10 @@ export default class SpeakEasyApi {
                 agent: this.agentName,
                 session: this.session
             })
-            .then(resp => this.session = resp.data.session)
+            .then((resp) => {
+                this.session = resp.data.session;
+                return resp;
+            })
             .catch(error => console.log(error));
     }
 }

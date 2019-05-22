@@ -1,14 +1,14 @@
 
 <template>
     <div class="launcher-icon-container">
-        <div class="launcher-icon" v-on:click="toggleChatbox" >
+        <div class="launcher-icon" v-bind:class="{ active: chatBoxVisible }" v-on:click="toggleChatbox" >
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['toggleChatbox'],
+        props: ['toggleChatbox', 'chatBoxVisible'],
     };
 </script>
 
@@ -47,6 +47,11 @@
     .launcher-icon-container .launcher-icon:hover {
         animation: none;
         cursor: pointer;
+    }
+
+    .active {
+        animation: none !important;
+        background-image: url('../assets/img/launcher-icon-active.png') !important;
     }
 </style>
 
