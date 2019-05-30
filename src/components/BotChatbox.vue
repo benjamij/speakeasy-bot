@@ -1,13 +1,13 @@
 
 <template>
-    <div class="bot-container animated lightSpeedIn">
+    <div class="bot-container animated" v-bind:class="{ lightSpeedOut: !isVisible, lightSpeedIn: isVisible }">
         <div class="chatbox">
             <div class="chatbox-header-container">
                 <div class="chatbox-header">
                     <div class="avatar">
                         <span class="avatar-text">{{header}}</span>
                     </div>
-                    <span style="float: right;" v-on:click="toggleChatbox">X</span>
+                    <span class="close-icon" v-on:click="close"></span>
                 </div>
                 <div class="subtext">
                     {{info}}
@@ -50,6 +50,7 @@
 <script>
     import DialogFlowMessageParser from '../services/DialogflowMessageParser';
     import BotCardMessageComponent from './BotCardMessage.vue';
+import { setTimeout } from 'timers';
 
     const messageParser = new DialogFlowMessageParser();
     export default {
@@ -57,11 +58,12 @@
         data() {
             return {
                 message: null,
-                isLoading: false
+                isLoading: false,
+                isVisible: true
             };
         },
         methods: {
-            sendMsg: function(event) {
+            sendMsg: function (event) {
                 if (!this.message) return;
                 const promise = this.send(event, this.message);
                 this.isLoading = true;
@@ -74,8 +76,12 @@
                 this.scrollToBottom();
                 this.message = null;
             },
-            scrollToBottom: function() {
-                this.$refs["chatbox-message-container"].scrollTop = this.$refs["chatbox-message-container"].clientHeight;
+            scrollToBottom: function () {
+                this.$refs["chatbox-message-container"].scrollTop = this.$refs["chatbox-message-container"].scrollHeight;
+            },
+            close: function () {
+                this.isVisible = false;
+                setTimeout(this.toggleChatbox, 1000);
             }
         }, 
         updated () {
@@ -107,6 +113,22 @@
         position: absolute;
         width: 100%;
         bottom: 20;
+    }
+
+    .close-icon {
+        float: right;
+        width: 100px;
+        height: 100px;
+        margin-right: -40px;
+        cursor: pointer;
+        background-image: url('../assets/img/close.png');
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+    }
+
+    .close-icon:hover {
+        float: right;
+        background-image: url('../assets/img/close-hover.png');
     }
 
     .avatar {
@@ -209,7 +231,6 @@
 
     .message {
         overflow: hidden;
-        min-height: 100px;
         padding: 15px;
     }
 
