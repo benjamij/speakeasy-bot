@@ -17,7 +17,7 @@
             <div class="chatbox-message-container" ref="chatbox-message-container">
                 <div v-for="message in messages" class="message">
                     <div
-                        v-if="message.type !== 'card'"
+                        v-if="message.type === 'text'"
                         class="message-bubble animated fadeIn"
                         v-bind:class="{ me: message.sender === 'Me' }">
                         {{message.text}}
@@ -25,7 +25,12 @@
                     <se-bot-card-message 
                         v-if="message.type === 'card'"
                         v-bind="{message}">
-                    </se-bot-card-message>>
+                    </se-bot-card-message>
+                    <se-bot-error 
+                        v-if="message.type === 'error'"
+                        class="message-bubble animated fadeIn"
+                        v-bind="{message}">
+                    </se-bot-error>>
                 </div>
                 <div class="message">
                     <div class="message-bubble typing animated fadeIn" v-if="isLoading">
@@ -50,7 +55,8 @@
 <script>
     import DialogFlowMessageParser from '../services/DialogflowMessageParser';
     import BotCardMessageComponent from './BotCardMessage.vue';
-import { setTimeout } from 'timers';
+    import BotErrorComponent from './BotError.vue';
+    import { setTimeout } from 'timers';
 
     const messageParser = new DialogFlowMessageParser();
     export default {
@@ -69,7 +75,13 @@ import { setTimeout } from 'timers';
                 this.isLoading = true;
                 promise.then((response) => {
                     this.isLoading = false;
-                    const fulfillmentMessages = response.data.queryResult.fulfillmentMessages;
+                    let fulfillmentMessages = null;
+                    if (response.data.queryResult) {
+                        fulfillmentMessages = response.data.queryResult.fulfillmentMessages;
+                    } else {
+                        fulfillmentMessages = [{'errors': response.data.errors}];
+                    }
+                    
                     messageParser.addMessageTo(this.messages, fulfillmentMessages);
                     this.scrollToBottom();
                 });
@@ -89,6 +101,7 @@ import { setTimeout } from 'timers';
         },
         components: {
             'se-bot-card-message': BotCardMessageComponent,
+            'se-bot-error': BotErrorComponent
         }
     };
 

@@ -14,6 +14,10 @@ export default class DialogFlowMessageParser {
         return !!message['text'] && !!message['text']['text'];
     }
 
+    isError(message) {
+        return !!message['errors'];
+    }
+
     addMessageTo(target, messages) {
         messages.forEach(message => {
             if (this.isCard(message)) {
@@ -42,6 +46,8 @@ export default class DialogFlowMessageParser {
                         type: 'suggestion'
                     });
                 })
+            } else if (this.isError(message)) {
+                target.push({errors: message.errors, type: 'error'});
             }
         });
         

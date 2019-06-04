@@ -17,7 +17,9 @@
     import DialogFlowApi from './api/DialogflowApi';
     import SpeakEasyApi from './api/SpeakEasyApi';
 
-    const api = new SpeakEasyApi('newagent-2e3fc', 'http://localhost:3000/');
+//https://speakeasybot-api.herokuapp.com/
+//http://localhost:3000
+    const api = new SpeakEasyApi('newagent-penpyf', 'https://speakeasybot-api.herokuapp.com/');
 
     export default {
         data() {
