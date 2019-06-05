@@ -43,7 +43,7 @@
     };
 </script>
 
-<style scoped>
+<style>
     .message {
         color: red;
     }
