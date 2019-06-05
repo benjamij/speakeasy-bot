@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const webpack = require('webpack');
 
+require('dotenv').config({path: './.env.production.local'});
+console.log(process.env.API_URL);
 module.exports = {
     entry: './src/main.js',
     module: {
@@ -17,6 +20,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'API_URL': JSON.stringify(process.env.API_URL)
+            }
         }),
         new VueLoaderPlugin(),
     ]

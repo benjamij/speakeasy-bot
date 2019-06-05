@@ -5,8 +5,8 @@ import axios from 'axios';
  */
 export default class SpeakEasyApi {
 
-    constructor (agentName, baseUrl = 'https://speakeasy-backend.herokuapp.com:443/') {
-        axios.defaults.baseURL = baseUrl;
+    constructor (agentName) {
+        axios.defaults.baseURL = process.env.API_URL;
         axios.defaults.headers.post['Content-Type'] = 'application/json';
         this.agentName = agentName;
         this.session = null;
