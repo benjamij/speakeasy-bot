@@ -17,7 +17,7 @@
     import DialogFlowApi from './api/DialogflowApi';
     import SpeakEasyApi from './api/SpeakEasyApi';
 
-    const api = new SpeakEasyApi('newagent-penpyf');
+    const api = new SpeakEasyApi('newagent-penpyf', process.env.API_KEY);
 
     export default {
         data() {
@@ -43,7 +43,7 @@
     };
 </script>
 
-<style scoped>
+<style>
     .message {
         color: red;
     }
