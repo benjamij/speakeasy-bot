@@ -3,7 +3,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 
-
 module.exports = (env, options) => {
     console.log('Running in ' + options.mode + ' mode.');
     if (options.mode === 'production') {
