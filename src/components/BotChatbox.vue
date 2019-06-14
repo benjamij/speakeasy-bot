@@ -30,7 +30,7 @@
                         v-if="message.type === 'error'"
                         class="message-bubble animated fadeIn"
                         v-bind="{message}">
-                    </se-bot-error>>
+                    </se-bot-error>
                 </div>
                 <div class="message">
                     <div class="message-bubble typing animated fadeIn" v-if="isLoading">
