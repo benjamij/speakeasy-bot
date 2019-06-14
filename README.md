@@ -6,4 +6,4 @@ Client-side code for the SpeakEasy bot.
 `npm run serve`
 
 # Build
-npm run build production
+`npm run build production`
