@@ -17,7 +17,7 @@
     import DialogFlowApi from './api/DialogflowApi';
     import SpeakEasyApi from './api/SpeakEasyApi';
 
-    const api = new SpeakEasyApi('newagent-penpyf', process.env.API_KEY);
+    const api = new SpeakEasyApi(process.env.AGENT_UUID);
 
     export default {
         data() {
