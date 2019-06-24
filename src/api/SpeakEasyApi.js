@@ -21,8 +21,8 @@ export default class SpeakEasyApi {
                 session: this.session
             })
             .then((resp) => {
-                this.session = resp.data.session;
-                return resp;
+                this.session = resp.data.data.session;
+                return resp.data;
             })
             .catch(error => console.log(error));
     }
