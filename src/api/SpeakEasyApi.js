@@ -5,27 +5,24 @@ import axios from 'axios';
  */
 export default class SpeakEasyApi {
 
-    constructor (agentName, apiKey) {
+    constructor (agentUuid) {
         axios.defaults.baseURL = process.env.API_URL;
         axios.defaults.headers.post['Content-Type'] = 'application/json';
-        this.agentName = agentName;
         this.session = null;
-        this.apiKey = apiKey;
+        this.agentUuid = agentUuid;
     }
     
     detectIntent (text, languageCode = 'en-US') {
-        console.log(this.apiKey);
         return axios
             .post(`/api/v1/intent/detect`, {
                 text: text,
                 language: languageCode,
-                agent: this.agentName,
-                apiKey: this.apiKey,
+                agent: this.agentUuid,
                 session: this.session
             })
             .then((resp) => {
-                this.session = resp.data.session;
-                return resp;
+                this.session = resp.data.data.session;
+                return resp.data;
             })
             .catch(error => console.log(error));
     }

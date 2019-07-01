@@ -16,15 +16,6 @@
 
     export default {
         props: ['message'],
-        data() {
-            return {
-
-            };
-        },
-        methods: {
-            
-        }, 
-
     };
 
     

@@ -22,6 +22,10 @@
                         v-bind:class="{ me: message.sender === 'Me' }">
                         {{message.text}}
                     </div>
+                    <se-bot-list-message
+                        v-if="message.type === 'list'"
+                        v-bind="{message}">
+                    </se-bot-list-message>
                     <se-bot-card-message 
                         v-if="message.type === 'card'"
                         v-bind="{message}">
@@ -30,7 +34,7 @@
                         v-if="message.type === 'error'"
                         class="message-bubble animated fadeIn"
                         v-bind="{message}">
-                    </se-bot-error>>
+                    </se-bot-error>
                 </div>
                 <div class="message">
                     <div class="message-bubble typing animated fadeIn" v-if="isLoading">
@@ -55,6 +59,7 @@
 <script>
     import DialogFlowMessageParser from '../services/DialogflowMessageParser';
     import BotCardMessageComponent from './BotCardMessage.vue';
+    import BotListMessageComponent from './BotListMessage.vue';
     import BotErrorComponent from './BotError.vue';
     import { setTimeout } from 'timers';
 
@@ -101,6 +106,7 @@
         },
         components: {
             'se-bot-card-message': BotCardMessageComponent,
+            'se-bot-list-message': BotListMessageComponent,
             'se-bot-error': BotErrorComponent
         }
     };
