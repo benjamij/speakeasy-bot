@@ -1,4 +1,3 @@
-
 <template>
     <div class="message-bubble animated fadeIn">
         <div class="list">
@@ -11,14 +10,7 @@
 </template>
 
 <script>
-
     export default {
         props: ['message'],
     };
-
-    
 </script>
-
-<style scoped>
-
-</style>
