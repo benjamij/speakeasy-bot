@@ -10,6 +10,10 @@ export default class DialogFlowMessageParser {
         return !!message['payload'] && !!message['payload']['suggestions'];
     }
 
+    isListMessage(message) {
+        return !!message['payload'] && !!message['payload']['list_items'];
+    }
+
     isText(message) {
         return !!message['text'] && !!message['text']['text'];
     }
@@ -48,6 +52,13 @@ export default class DialogFlowMessageParser {
                 })
             } else if (this.isError(message)) {
                 target.push({errors: message.errors, type: 'error'});
+            } else if (this.isListMessage(message)) {
+                target.push({
+                    title: message['payload']['list_title'],
+                    items: message['payload']['list_items'],
+                    sender: 'Bot',
+                    type: 'list'
+                });
             }
         });
         
