@@ -31,6 +31,7 @@ module.exports = (env, options) => {
                 'process.env': {
                     'API_URL': JSON.stringify(process.env.API_URL),
                     'AGENT_UUID': JSON.stringify(process.env.AGENT_UUID),
+                    'AGENT_LANG': JSON.stringify(process.env.AGENT_LANG),
                 }
             }),
             new VueLoaderPlugin(),
