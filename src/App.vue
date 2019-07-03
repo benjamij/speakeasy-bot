@@ -16,8 +16,10 @@
     import BotChatboxComponent from './components/BotChatbox.vue';
     import DialogFlowApi from './api/DialogflowApi';
     import SpeakEasyApi from './api/SpeakEasyApi';
+    
+    const userLang = process.env.AGENT_LANG || navigator.language || navigator.userLanguage;
 
-    const api = new SpeakEasyApi(process.env.AGENT_UUID);
+    const api = new SpeakEasyApi(process.env.AGENT_UUID, userLang);
 
     export default {
         data() {
