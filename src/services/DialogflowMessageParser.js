@@ -1,4 +1,5 @@
 
+const LINK_MSG_PAYLOAD_TYPE = 4;
 
 export default class DialogFlowMessageParser {
 
@@ -12,6 +13,10 @@ export default class DialogFlowMessageParser {
 
     isListMessage(message) {
         return !!message['payload'] && !!message['payload']['list_items'];
+    }
+
+    isLinkMessage(message) {
+        return !!message['payload'] && message['payload']['payload_type'] === LINK_MSG_PAYLOAD_TYPE;
     }
 
     isText(message) {
@@ -59,7 +64,14 @@ export default class DialogFlowMessageParser {
                     sender: 'Bot',
                     type: 'list'
                 });
+            } else if (this.isLinkMessage(message)) {
+                target.push({
+                    text: message['payload']['text'],
+                    url: message['payload']['url'],
+                    type: 'link'
+                })
             }
+            console.log(this.isLinkMessage(message));
         });
         
     }
