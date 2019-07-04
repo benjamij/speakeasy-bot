@@ -30,6 +30,10 @@
                         v-if="message.type === 'card'"
                         v-bind="{message}">
                     </se-bot-card-message>
+                    <se-bot-link-message 
+                        v-if="message.type === 'link'"
+                        v-bind="{message}">
+                    </se-bot-link-message>
                     <se-bot-error 
                         v-if="message.type === 'error'"
                         class="message-bubble animated fadeIn"
@@ -60,6 +64,7 @@
     import DialogFlowMessageParser from '../services/DialogflowMessageParser';
     import BotCardMessageComponent from './BotCardMessage.vue';
     import BotListMessageComponent from './BotListMessage.vue';
+    import BotLinkMessageComponent from './BotLinkMessage.vue';
     import BotErrorComponent from './BotError.vue';
     import { setTimeout } from 'timers';
 
@@ -107,6 +112,7 @@
         components: {
             'se-bot-card-message': BotCardMessageComponent,
             'se-bot-list-message': BotListMessageComponent,
+            'se-bot-link-message': BotLinkMessageComponent,
             'se-bot-error': BotErrorComponent
         }
     };
