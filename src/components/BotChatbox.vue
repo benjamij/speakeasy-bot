@@ -1,4 +1,3 @@
-
 <template>
     <div class="bot-container animated" v-bind:class="{ lightSpeedOut: !isVisible, lightSpeedIn: isVisible }">
         <div class="chatbox">
@@ -116,8 +115,6 @@
             'se-bot-error': BotErrorComponent
         }
     };
-
-    
 </script>
 
 <style scoped>

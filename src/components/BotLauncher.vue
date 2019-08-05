@@ -1,4 +1,3 @@
-
 <template>
     <div class="launcher-icon-container">
         <div class="launcher-icon" v-bind:class="{ active: chatBoxVisible }" v-on:click="toggleChatbox" >
@@ -54,5 +53,3 @@
         background-image: url('../assets/img/launcher-icon-active.png') !important;
     }
 </style>
-
-
