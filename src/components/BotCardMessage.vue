@@ -1,4 +1,3 @@
-
 <template>
     <div class="card">
         <h2>{{message.title}}</h2>
@@ -13,12 +12,9 @@
 </template>
 
 <script>
-
     export default {
         props: ['message'],
     };
-
-    
 </script>
 
 <style scoped>

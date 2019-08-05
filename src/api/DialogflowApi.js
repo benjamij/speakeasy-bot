@@ -5,7 +5,7 @@ const creds = require('../assets/key.json')
 
 /**
  * The Dialogflow API should only be used for local testing or as a fall-back for
- * demonstrations. Any production bots should be using the middleware.
+ * demonstrations. Any production bots should be using the SpeakEasy middleware.
  */
 export default class DialogFlowApi {
 
