@@ -1,6 +1,7 @@
 # speakeasy-bot
 Client-side code for the SpeakEasy bot. A small hobby project for interfacing with the SpeakEasy API and Google's Dialogflow.
-![alt text](https://imgur.com/G8Q9RKo)
+
+![](https://imgur.com/G8Q9RKo)
 
 
 # Run
