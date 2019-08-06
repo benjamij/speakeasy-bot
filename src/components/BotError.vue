@@ -1,4 +1,3 @@
-
 <template>
     <div class="error">
         <p v-for="error in message.errors">{{error}}</p>
@@ -6,21 +5,9 @@
 </template>
 
 <script>
-
     export default {
         props: ['message'],
-        data() {
-            return {
-
-            };
-        },
-        methods: {
-            
-        }, 
-
     };
-
-    
 </script>
 
 <style scoped>
