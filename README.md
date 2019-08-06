@@ -1,5 +1,5 @@
 # speakeasy-bot
-Client-side code for the SpeakEasy bot.
+Client-side code for the SpeakEasy bot. A small hobby project for interfacing with the SpeakEasy API and Google's Dialogflow.
 
 
 # Run
