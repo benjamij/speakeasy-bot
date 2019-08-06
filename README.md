@@ -1,7 +1,15 @@
 # speakeasy-bot
 Client-side code for the SpeakEasy bot. A small hobby project for interfacing with the SpeakEasy API and Google's Dialogflow.
 
-![Bot UI](https://imgur.com/G8Q9RKo)
+![Bot UI](https://i.imgur.com/G8Q9RKo.png)
+
+# Environment variables
+Set the following for connecting to SpeakEasy:
+API_URL
+AGENT_UUID
+AGENT_LANG
+
+Or use the DialogFlowApi.
 
 
 # Run
