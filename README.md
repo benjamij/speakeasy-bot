@@ -8,9 +8,11 @@ Client for the SpeakEasy/Google Dialogflow chatbot (a small hobby project for in
 
 # Environment variables
 Set the following for connecting to SpeakEasy:
+```
 API_URL
 AGENT_UUID
 AGENT_LANG
+```
 
 Or use the DialogFlowApi.
 
