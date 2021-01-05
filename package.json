@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/benjamij/speakeasy-bot#readme",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "dotenv": "^8.0.0",
     "file-loader": "^4.1.0",
     "jsrsasign": "^8.0.12"
