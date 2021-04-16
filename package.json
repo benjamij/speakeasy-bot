@@ -22,7 +22,7 @@
     "axios": "^0.18.1",
     "dotenv": "^8.0.0",
     "file-loader": "^4.1.0",
-    "jsrsasign": "^8.0.12"
+    "jsrsasign": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
